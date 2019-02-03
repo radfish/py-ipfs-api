@@ -258,6 +258,9 @@ class Base(base.ClientBase):
 			The chunking algorithm to use
 		pin : bool
 			Pin this object when adding (Default: ``True``)
+		nocopy : bool
+			Add the file using filestore. Implies raw-leaves. (experimental).
+			(Default: ``False``)
 
 		Returns
 		-------
@@ -268,7 +271,8 @@ class Base(base.ClientBase):
 			"trickle": kwargs.pop("trickle", False),
 			"only-hash": kwargs.pop("only_hash", False),
 			"wrap-with-directory": kwargs.pop("wrap_with_directory", False),
-			"pin": kwargs.pop("pin", True)
+			"pin": kwargs.pop("pin", True),
+			'nocopy': kwargs.pop("nocopy", False)
 		}
 		if "chunker" in kwargs:
 			opts["chunker"] = kwargs.pop("chunker")
